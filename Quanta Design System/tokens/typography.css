@@ -1,0 +1,51 @@
+/* ============================================================
+   QUANTA · TYPOGRAPHY
+   Archivo (neo-grotesque) for everything UI; IBM Plex Mono for
+   data, numerics and codes. Tight tracking on display sizes,
+   tabular figures everywhere numbers appear.
+   ============================================================ */
+:root {
+  /* Families */
+  --font-sans: 'Archivo', 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', ui-monospace, Menlo, monospace;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* Type scale (px) — restrained Swiss steps */
+  --text-xs:   11px;
+  --text-sm:   12px;
+  --text-base: 13px;
+  --text-md:   14px;
+  --text-lg:   16px;
+  --text-xl:   20px;
+  --text-2xl:  26px;
+  --text-3xl:  34px;
+  --text-4xl:  46px;
+  --text-5xl:  62px;
+
+  /* Line heights */
+  --leading-tight:  1.1;
+  --leading-snug:   1.25;
+  --leading-normal: 1.45;
+  --leading-relaxed:1.6;
+
+  /* Tracking */
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.04em;
+  --tracking-caps:    0.08em;  /* overline / eyebrow labels */
+
+  /* Numeric — tabular figures for tables & KPIs */
+  --num: 'IBM Plex Mono', ui-monospace, monospace; /* @kind font */
+  --font-feature-tnum: 'tnum' 1, 'lnum' 1;
+}
+
+/* Base element defaults consumers inherit */
+:root {
+  --body-font: var(--font-sans);
+}

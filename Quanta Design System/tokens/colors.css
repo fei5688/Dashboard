@@ -1,0 +1,100 @@
+/* ============================================================
+   QUANTA · COLORS
+   Swiss-minimal analytics palette: a deep neutral ramp does
+   95% of the work; one cobalt accent carries action; a tight
+   semantic set + an 8-step categorical ramp carry data viz.
+   ============================================================ */
+:root {
+  /* ---- Neutrals (cool grey ramp) ---- */
+  --gray-0:   #ffffff;
+  --gray-50:  #f6f7f8;
+  --gray-100: #eceff1;
+  --gray-150: #e3e7ea;
+  --gray-200: #d6dbdf;
+  --gray-300: #c0c7cc;
+  --gray-400: #9aa3a9;
+  --gray-500: #767f86;
+  --gray-600: #565f66;
+  --gray-700: #3b4347;
+  --gray-800: #262c30;
+  --gray-900: #161a1d;
+  --gray-950: #0b0e0f;
+
+  /* ---- Accent · cobalt ---- */
+  --blue-50:  #eef3ff;
+  --blue-100: #dbe5ff;
+  --blue-200: #b9ccff;
+  --blue-400: #5b86ff;
+  --blue-500: #2f64f0;  /* primary */
+  --blue-600: #1f4cd1;
+  --blue-700: #173ba6;
+
+  /* ---- Semantic hues ---- */
+  --green-50:  #e7f6ee;
+  --green-500: #18935a;
+  --green-600: #137a4a;
+  --red-50:    #fdecec;
+  --red-500:   #d83a3f;
+  --red-600:   #b82c31;
+  --amber-50:  #fdf3e2;
+  --amber-500: #d6890a;
+  --amber-600: #b06f06;
+
+  /* ---- Categorical data-viz ramp ---- */
+  --chart-1: #2f64f0;  /* cobalt   */
+  --chart-2: #16b1a3;  /* teal     */
+  --chart-3: #d6890a;  /* amber    */
+  --chart-4: #7c5cf0;  /* violet   */
+  --chart-5: #d8488f;  /* magenta  */
+  --chart-6: #18935a;  /* green    */
+  --chart-7: #6b7782;  /* slate    */
+  --chart-8: #d83a3f;  /* red      */
+
+  /* ============================================================
+     SEMANTIC ALIASES — author against these, not raw scale
+     ============================================================ */
+  /* Text */
+  --text-primary:   var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --text-tertiary:  var(--gray-500);
+  --text-disabled:  var(--gray-400);
+  --text-inverse:   var(--gray-0);
+  --text-accent:    var(--blue-600);
+
+  /* Surfaces */
+  --surface-page:   var(--gray-50);
+  --surface-card:   var(--gray-0);
+  --surface-sunken: var(--gray-100);
+  --surface-hover:  var(--gray-100);
+  --surface-active: var(--gray-150);
+  --surface-inverse:var(--gray-900);
+
+  /* Borders */
+  --border-subtle:  var(--gray-150);
+  --border-default: var(--gray-200);
+  --border-strong:  var(--gray-300);
+  --border-focus:   var(--blue-500);
+
+  /* Accent / action */
+  --accent:         var(--blue-500);
+  --accent-hover:   var(--blue-600);
+  --accent-active:  var(--blue-700);
+  --accent-subtle:  var(--blue-50);
+  --accent-border:  var(--blue-200);
+  --on-accent:      var(--gray-0);
+
+  /* Status */
+  --success:        var(--green-500);
+  --success-subtle: var(--green-50);
+  --danger:         var(--red-500);
+  --danger-subtle:  var(--red-50);
+  --warning:        var(--amber-500);
+  --warning-subtle: var(--amber-50);
+
+  /* Data direction (deltas) */
+  --pos: var(--green-500);
+  --neg: var(--red-500);
+
+  /* Focus ring */
+  --ring: 0 0 0 3px var(--blue-100);
+}

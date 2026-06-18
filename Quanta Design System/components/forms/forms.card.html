@@ -1,0 +1,63 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Forms" subtitle="Button, IconButton, Input, Select, Checkbox, Switch" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; padding: 26px; background: var(--surface-card); }
+  .wrap { display: flex; flex-direction: column; gap: 22px; }
+  .group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); width: 76px; flex: none; }
+  .row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const { Button, IconButton, Input, Select, Checkbox, Switch } = window.QuantaDesignSystem_e41436;
+  function Demo() {
+    const [on, setOn] = React.useState(true);
+    const [chk, setChk] = React.useState(true);
+    React.useEffect(() => { window.lucide && window.lucide.createIcons(); });
+    return (
+      <div className="wrap">
+        <div className="group"><span className="lbl">Buttons</span>
+          <Button variant="primary" iconLeft="plus">New report</Button>
+          <Button variant="secondary">Export</Button>
+          <Button variant="ghost" iconLeft="filter">Filter</Button>
+          <Button variant="danger">Delete</Button>
+          <Button variant="primary" disabled>Disabled</Button>
+          <Button variant="secondary" loading>Saving</Button>
+        </div>
+        <div className="group"><span className="lbl">Sizes</span>
+          <Button size="sm">Small</Button>
+          <Button size="md">Medium</Button>
+          <Button size="lg">Large</Button>
+          <IconButton icon="search" label="Search" variant="outline" />
+          <IconButton icon="sliders-horizontal" label="Settings" active />
+          <IconButton icon="more-horizontal" label="More" />
+        </div>
+        <div className="row" style={{ alignItems: 'flex-start' }}>
+          <Input label="Workspace" placeholder="Acme analytics" style={{ width: 190 }} />
+          <Input label="Search" iconLeft="search" placeholder="Metrics…" style={{ width: 170 }} />
+          <Select label="Range" value="Last 30 days" options={['Last 7 days','Last 30 days','Last quarter']} style={{ width: 160 }} />
+        </div>
+        <div className="group"><span className="lbl">Toggles</span>
+          <Checkbox label="Include archived" checked={chk} onChange={e=>setChk(e.target.checked)} />
+          <Checkbox label="Indeterminate" indeterminate />
+          <Switch label="Live updates" checked={on} onChange={e=>setOn(e.target.checked)} />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+  setTimeout(() => window.lucide && window.lucide.createIcons(), 60);
+</script>
+</body>
+</html>

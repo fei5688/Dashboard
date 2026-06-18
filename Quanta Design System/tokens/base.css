@@ -1,0 +1,38 @@
+/* ============================================================
+   QUANTA · BASE
+   Minimal element resets + a few utility primitives. Opt-in:
+   consumers get tokens for free; these resets only bite the
+   elements they name.
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tabular numerics utility — KPIs, tables, axes */
+.q-num {
+  font-family: var(--font-mono);
+  font-feature-settings: var(--font-feature-tnum);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Eyebrow / overline label */
+.q-overline {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+::selection { background: var(--blue-100); }
+
+@keyframes q-spin { to { transform: rotate(360deg); } }

@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Accent & Semantic" subtitle="One cobalt action color + status hues" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 20px 24px; background: var(--surface-card); display: flex; flex-direction: column; gap: 14px; }
+  .group { display: flex; gap: 10px; }
+  .chip { display: flex; flex-direction: column; gap: 5px; }
+  .dot { width: 92px; height: 44px; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,.06); }
+  .nm { font-family: var(--font-mono); font-size: 9px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+  <div class="group">
+    <div class="chip"><div class="dot" style="background:var(--accent-subtle)"></div><span class="nm">accent-subtle</span></div>
+    <div class="chip"><div class="dot" style="background:var(--accent)"></div><span class="nm">accent</span></div>
+    <div class="chip"><div class="dot" style="background:var(--accent-hover)"></div><span class="nm">accent-hover</span></div>
+    <div class="chip"><div class="dot" style="background:var(--accent-active)"></div><span class="nm">accent-active</span></div>
+  </div>
+  <div class="group">
+    <div class="chip"><div class="dot" style="background:var(--success)"></div><span class="nm">success</span></div>
+    <div class="chip"><div class="dot" style="background:var(--warning)"></div><span class="nm">warning</span></div>
+    <div class="chip"><div class="dot" style="background:var(--danger)"></div><span class="nm">danger</span></div>
+    <div class="chip"><div class="dot" style="background:var(--success-subtle)"></div><span class="nm">success-subtle</span></div>
+    <div class="chip"><div class="dot" style="background:var(--warning-subtle)"></div><span class="nm">warning-subtle</span></div>
+    <div class="chip"><div class="dot" style="background:var(--danger-subtle)"></div><span class="nm">danger-subtle</span></div>
+  </div>
+</body>
+</html>

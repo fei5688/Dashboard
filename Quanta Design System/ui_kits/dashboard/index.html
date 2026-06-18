@@ -1,0 +1,85 @@
+<!-- @dsCard group="Dashboard" viewport="1240x780" name="Analytics Dashboard" subtitle="Interactive — switch views, sort, filter, select" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quanta · Analytics</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="icon" href="../../assets/logo-mark.svg">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--surface-page); overflow: hidden; }
+  #root { height: 100vh; }
+  .q-scroll { overflow-y: auto; }
+  .q-scroll::-webkit-scrollbar { width: 10px; }
+  .q-scroll::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: 999px; border: 3px solid var(--surface-page); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script type="text/babel" src="AreaChart.jsx"></script>
+<script type="text/babel" src="Sidebar.jsx"></script>
+<script type="text/babel" src="Topbar.jsx"></script>
+<script type="text/babel" src="OverviewScreen.jsx"></script>
+<script type="text/babel" src="ExploreScreen.jsx"></script>
+<script type="text/babel" src="EventsScreen.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+  const { Button } = window.QuantaDesignSystem_e41436;
+  const TITLES = { overview: 'Overview', explore: 'Explore', events: 'Events', funnels: 'Funnels', cohorts: 'Cohorts', reports: 'Reports', settings: 'Settings' };
+
+  function EmptyState({ label }) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: 14, color: 'var(--text-tertiary)' }}>
+        <div style={{ width: 52, height: 52, borderRadius: 'var(--radius-lg)', background: 'var(--surface-sunken)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <i data-lucide="construction" style={{ width: 24, height: 24 }}></i>
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 15, fontWeight: 'var(--weight-semibold)', color: 'var(--text-secondary)' }}>{label} is not part of this UI kit</div>
+          <div style={{ fontSize: 13, marginTop: 4 }}>Overview, Explore, and Events are the demonstrated surfaces.</div>
+        </div>
+        <Button variant="secondary" size="sm" iconLeft="arrow-left" onClick={() => window.__go('overview')}>Back to Overview</Button>
+      </div>
+    );
+  }
+
+  function App() {
+    const [active, setActive] = React.useState('overview');
+    const [range, setRange] = React.useState('Last 30 days');
+    window.__go = setActive;
+
+    React.useEffect(() => { window.lucide && window.lucide.createIcons(); });
+
+    let screen;
+    if (active === 'overview') screen = <window.OverviewScreen />;
+    else if (active === 'explore') screen = <window.ExploreScreen />;
+    else if (active === 'events') screen = <window.EventsScreen />;
+    else screen = <EmptyState label={TITLES[active]} />;
+
+    return (
+      <div style={{ display: 'flex', height: '100vh' }}>
+        <window.Sidebar active={active} onNavigate={setActive} />
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+          <window.Topbar title={TITLES[active]} range={range} onRange={setRange} />
+          <main className="q-scroll" style={{ flex: 1, padding: 20 }}>
+            <div style={{ maxWidth: 1180, margin: '0 auto' }}>{screen}</div>
+          </main>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  const tick = () => window.lucide && window.lucide.createIcons();
+  setTimeout(tick, 80); setTimeout(tick, 300);
+</script>
+</body>
+</html>

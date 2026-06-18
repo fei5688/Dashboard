@@ -1,0 +1,6 @@
+/* Quanta webfonts.
+   NOTE: Substituting Google Fonts for self-hosted binaries.
+   - Archivo  → Swiss neo-grotesque, the closest free match to Helvetica/Neue Haas.
+   - IBM Plex Mono → tabular data, codes, numerics.
+   Replace with licensed self-hosted files when available. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');

@@ -1,0 +1,32 @@
+<!-- @dsCard group="Type" viewport="700x200" name="Mono & Numerics" subtitle="IBM Plex Mono, tabular figures for data" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 22px 26px; background: var(--surface-card); }
+  .label { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); margin-bottom: 6px; }
+  .nums { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--text-primary); }
+  .grid { display: grid; grid-template-columns: repeat(4, max-content); gap: 4px 40px; }
+  .kpi { font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
+  .delta { font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="label">KPI · tabular nums align in columns</div>
+  <div class="grid nums">
+    <span class="kpi">1,284,907</span>
+    <span class="kpi">$48.20</span>
+    <span class="kpi">99.98%</span>
+    <span class="kpi">3.4s</span>
+  </div>
+  <div style="height:14px"></div>
+  <div class="label">Deltas</div>
+  <div class="nums" style="display:flex;gap:28px">
+    <span class="delta" style="color:var(--pos)">▲ +12.4%</span>
+    <span class="delta" style="color:var(--neg)">▼ −3.1%</span>
+    <span class="delta" style="color:var(--text-tertiary)">0.0%</span>
+  </div>
+</body>
+</html>
